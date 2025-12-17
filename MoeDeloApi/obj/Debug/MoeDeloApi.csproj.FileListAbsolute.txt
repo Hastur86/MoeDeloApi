@@ -8,3 +8,13 @@ C:\Users\User\source\repos\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.csproj.Cor
 C:\Users\User\source\repos\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.csproj.CopyComplete
 C:\Users\User\source\repos\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.exe
 C:\Users\User\source\repos\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.pdb
+D:\Repository\MoeDeloApi\MoeDeloApi\bin\Debug\MoeDeloApi.exe.config
+D:\Repository\MoeDeloApi\MoeDeloApi\bin\Debug\MoeDeloApi.exe
+D:\Repository\MoeDeloApi\MoeDeloApi\bin\Debug\MoeDeloApi.pdb
+D:\Repository\MoeDeloApi\MoeDeloApi\bin\Debug\Newtonsoft.Json.dll
+D:\Repository\MoeDeloApi\MoeDeloApi\bin\Debug\Newtonsoft.Json.xml
+D:\Repository\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.csprojAssemblyReference.cache
+D:\Repository\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.csproj.CoreCompileInputs.cache
+D:\Repository\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.csproj.CopyComplete
+D:\Repository\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.exe
+D:\Repository\MoeDeloApi\MoeDeloApi\obj\Debug\MoeDeloApi.pdb

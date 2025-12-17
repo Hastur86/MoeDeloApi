@@ -18,8 +18,9 @@ namespace MoeDeloApi
         {
             MonyService monyService = new MonyService(MainUrl,ApiKey,Logger);
 
-            var entity = monyService.Get("784196140");
-            Logger.Log("Возвращена запись - "+ entity.Contractor.Name);
+            string[] param = { "01.01.2025", "17.02.2025", "1", "16" };
+            var entity = monyService.GetList(param);
+            Logger.Log("Возвращена запись - "+ entity.Count);
             Console.ReadKey();
         }
     }

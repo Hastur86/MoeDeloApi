@@ -34,7 +34,10 @@ namespace MoeDeloApi.Services
                         for (int i = 0; i < parameters.Length; i++)
                         {
                             if (i == 0) url = url + "?" + parameters[i] + "=" + args[i];
-                            else url = url + "&" + parameters[i] + "=" + args[i];
+                            else
+                            {
+                                if (args[i] != "") url = url + "&" + parameters[i] + "=" + args[i];
+                            }
                         }
                     }
                 }
