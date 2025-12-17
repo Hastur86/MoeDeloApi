@@ -1,31 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Threading;
 using MoeDeloApi.Logger;
-using MoeDeloApi.MoeDeloDto.Mony;
+using MoeDeloApi.MoeDeloDto.Kontragent;
 
 namespace MoeDeloApi.Services
 {
-    public class MonyService : IMoeDeloEntity<OperationResponseDto>
+    public class KontragentService : IMoeDeloEntity<KontragentDto>
     {
         public string MainUrl { get; set; }
         public string ApiKey { get; set; }
         public ILogger Logger { get; set; }
 
-        public MonyService(string mainUrl, string apiKey, ILogger logger)
+        public KontragentService(string mainUrl, string apiKey, ILogger logger)
         {
             MainUrl = mainUrl;
             ApiKey = apiKey;
             Logger = logger;
         }
-
-        public OperationResponseDto Get(string id)
+        public KontragentDto Get(string id)
         {
             try
             {
-                IMoeDeloApiGetCommand<OperationResponseDto> command
-                    = new IMoeDeloApiGetCommand<OperationResponseDto>(MainUrl + "/money/api/v1/PaymentOrders", ApiKey, Logger);
+                IMoeDeloApiGetCommand<KontragentDto> command
+                    = new IMoeDeloApiGetCommand<KontragentDto>(MainUrl + "/kontragents/api/v1/kontragent", ApiKey, Logger);
 
                 string[] param = { "/" };
                 string[] arg = { id };
@@ -33,22 +31,21 @@ namespace MoeDeloApi.Services
             }
             catch (Exception e)
             {
-                Logger.Log("Ошибка получения операции с {"+id+"} "+ e.Message);
+                Logger.Log("Ошибка получения контрагента с {" + id + "} " + e.Message);
                 return null;
             }
         }
 
-        public List<OperationResponseDto> GetList(string[] args)
+        public List<KontragentDto> GetList(string[] args)
         {
-            List<OperationResponseDto> allOperations = new List<OperationResponseDto>();
+            List<KontragentDto> allOperations = new List<KontragentDto>();
             int currentPage = 1;
             bool hasMorePages = true;
             int maxRetries = 2;
-            DateTime startDate = DateTime.Parse(args[0]);
-            DateTime endDate = DateTime.Parse(args[1]);
-            string operationSource = args[2];
-            string operationTypes = "";
-            if(args.Length == 4) operationTypes = args[3];
+            string inn = "";
+            string name = "";
+            if (args.Length >= 1) inn = args[0];
+            if (args.Length == 2) name = args[1];
 
             while (hasMorePages)
             {
@@ -56,14 +53,14 @@ namespace MoeDeloApi.Services
 
                 bool success = false;
                 int retryCount = 0;
-                List<OperationResponseDto> operations = new List<OperationResponseDto>();
+                List<KontragentDto> operations = new List<KontragentDto>();
 
                 // Повторные попытки при ошибках
                 while (!success && retryCount < maxRetries)
                 {
                     try
                     {
-                        operations = GetOperationsPage(startDate, endDate, operationSource, operationTypes, currentPage, 1000, (currentPage - 1) * 1000);
+                        operations = GetOperationsPage(currentPage, 1000, inn, name);
                         success = true;
                     }
                     catch (WebException webEx)
@@ -109,16 +106,16 @@ namespace MoeDeloApi.Services
             return allOperations;
         }
 
-        private List<OperationResponseDto> GetOperationsPage(DateTime startDate, DateTime endDate, string operationSource, string operationTypes, int page, int limit, int offset)
+        private List<KontragentDto> GetOperationsPage(int pageNo, int pageSize, string inn, string name)
         {
             try
             {
-                IMoeDeloApiGetCommand<ApiPageResponseDto<OperationResponseDto>> command
-                    = new IMoeDeloApiGetCommand<ApiPageResponseDto<OperationResponseDto>>(MainUrl + "/money/api/v1/Registry", ApiKey, Logger);
+                IMoeDeloApiGetCommand<KontragentRepresentationCollection> command
+                    = new IMoeDeloApiGetCommand<KontragentRepresentationCollection>(MainUrl + "/kontragents/api/v1/kontragent", ApiKey, Logger);
 
-                string[] param = { "Offset", "Limit", "StartDate", "EndDate", "OperationSource", "OperationTypes" };
-                string[] arg = { offset.ToString(), limit.ToString(), startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), operationSource, operationTypes };
-                return command.Get(param, arg).Data;
+                string[] param = { "pageNo", "pageSize", "inn", "name" };
+                string[] arg = { pageNo.ToString(), pageSize.ToString(), inn, name };
+                return command.Get(param, arg).ResourceList;
 
             }
             catch (WebException webEx)
@@ -128,10 +125,9 @@ namespace MoeDeloApi.Services
             }
         }
 
-
-        public bool Set(OperationResponseDto entity)
+        public bool Set(KontragentDto entity)
         {
-            return false;
+            throw new System.NotImplementedException();
         }
     }
 }

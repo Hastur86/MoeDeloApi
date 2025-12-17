@@ -17,16 +17,25 @@ namespace MoeDeloApi
 
         static void Main(string[] args)
         {
-            OperationRepository operationRepository = new OperationRepository(MainUrl, ApiKey, Logger);
+            /*OperationRepository operationRepository = new OperationRepository(MainUrl, ApiKey, Logger);
 
-            /*string[] param = { "01.01.2025", "17.12.2025", "1" };
-            operationRepository.Update(param);*/
+            string[] param = { "01.01.2025", "17.12.2025", "1" };
+            operationRepository.Update(param);
 
             string[] param1 = { "01.01.2025", "17.12.2025"};
             var entity = operationRepository.Get(param1);
             
             Logger.Log("Возвращена запись - "+ entity.Count);
-            //operationRepository.Save();
+            //operationRepository.Save();*/
+
+            KontragentRepository kontragentRepository = new KontragentRepository(MainUrl, ApiKey, Logger);
+
+            string[] param = { };
+            kontragentRepository.Update(param);
+            var entity = kontragentRepository.Get(param);
+
+            Logger.Log("Возвращено записей - " + entity.Count);
+            kontragentRepository.Save();
 
             Console.ReadKey();
         }

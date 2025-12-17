@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Logger\ConsoleLogger.cs" />
     <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="MoeDeloDto\Kontragent\KontragentDto.cs" />
+    <Compile Include="MoeDeloDto\Kontragent\KontragentRepresentationCollection.cs" />
+    <Compile Include="MoeDeloDto\Kontragent\TagDto.cs" />
     <Compile Include="MoeDeloDto\Mony\ApiPageResponseDto.cs" />
     <Compile Include="MoeDeloDto\Mony\ContractorDto.cs" />
     <Compile Include="MoeDeloDto\Mony\NdsDto.cs" />
@@ -59,8 +62,10 @@
     <Compile Include="Services\IMoeDeloDatabase.cs" />
     <Compile Include="Services\IMoeDeloEntity.cs" />
     <Compile Include="Services\IMoeDeloRepository.cs" />
+    <Compile Include="Services\KontragentService.cs" />
     <Compile Include="Services\MoeDeloFileDatabase.cs" />
     <Compile Include="Services\MonyService.cs" />
+    <Compile Include="Services\Repositories\KontragentRepository.cs" />
     <Compile Include="Services\Repositories\OperationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
