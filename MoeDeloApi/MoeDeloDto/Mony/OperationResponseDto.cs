@@ -1,5 +1,8 @@
-﻿namespace MoeDeloApi.MoeDeloDto.Mony
+﻿using System;
+
+namespace MoeDeloApi.MoeDeloDto.Mony
 {
+    [Serializable]
     public class OperationResponseDto
     {
         public ContractorDto Contractor { get; set; }

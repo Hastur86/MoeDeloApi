@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MoeDeloApi.Logger;
 using MoeDeloApi.Services;
+using MoeDeloApi.Services.Repositories;
 
 namespace MoeDeloApi
 {
@@ -16,11 +17,17 @@ namespace MoeDeloApi
 
         static void Main(string[] args)
         {
-            MonyService monyService = new MonyService(MainUrl,ApiKey,Logger);
+            OperationRepository operationRepository = new OperationRepository(MainUrl, ApiKey, Logger);
 
-            string[] param = { "01.01.2025", "17.02.2025", "1", "16" };
-            var entity = monyService.GetList(param);
+            /*string[] param = { "01.01.2025", "17.12.2025", "1" };
+            operationRepository.Update(param);*/
+
+            string[] param1 = { "01.01.2025", "17.12.2025"};
+            var entity = operationRepository.Get(param1);
+            
             Logger.Log("Возвращена запись - "+ entity.Count);
+            //operationRepository.Save();
+
             Console.ReadKey();
         }
     }

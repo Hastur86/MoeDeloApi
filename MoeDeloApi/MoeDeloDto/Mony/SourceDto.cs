@@ -1,5 +1,8 @@
-﻿namespace MoeDeloApi.MoeDeloDto.Mony
+﻿using System;
+
+namespace MoeDeloApi.MoeDeloDto.Mony
 {
+    [Serializable]
     public class SourceDto
     {
         public int? Id { get; set; }

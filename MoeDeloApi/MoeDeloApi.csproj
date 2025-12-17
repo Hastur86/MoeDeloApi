@@ -56,8 +56,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMoeDeloApiGetCommand.cs" />
+    <Compile Include="Services\IMoeDeloDatabase.cs" />
     <Compile Include="Services\IMoeDeloEntity.cs" />
+    <Compile Include="Services\IMoeDeloRepository.cs" />
+    <Compile Include="Services\MoeDeloFileDatabase.cs" />
     <Compile Include="Services\MonyService.cs" />
+    <Compile Include="Services\Repositories\OperationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
