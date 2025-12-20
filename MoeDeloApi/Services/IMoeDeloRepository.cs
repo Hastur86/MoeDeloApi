@@ -5,9 +5,6 @@ namespace MoeDeloApi.Services
 {
     public interface IMoeDeloRepository<T>
     {
-        string MainUrl { get; set; }
-        string ApiKey { get; set; }
-        ILogger Logger { get; set; }
         IMoeDeloDatabase<T> Db { get; set; }
 
         List<T> Entities { get; set; }

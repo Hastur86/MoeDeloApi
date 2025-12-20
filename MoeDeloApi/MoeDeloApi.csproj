@@ -78,6 +78,7 @@
     <Compile Include="Services\MoeDeloBase.cs" />
     <Compile Include="Services\MoeDeloFileDatabase.cs" />
     <Compile Include="Services\EntityServices\MonyService.cs" />
+    <Compile Include="Services\Repositories\BillRepository.cs" />
     <Compile Include="Services\Repositories\KontragentRepository.cs" />
     <Compile Include="Services\Repositories\OperationRepository.cs" />
   </ItemGroup>

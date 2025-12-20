@@ -7,17 +7,11 @@ using Newtonsoft.Json;
 
 namespace MoeDeloApi.Services
 {
-    public class IMoeDeloApiGetCommand<T>
+    public class IMoeDeloApiGetCommand<T> : MoeDeloBase
     {
-        private string MainUrl = "";
-        private string ApiKey = "";
-        private ILogger Logger;
-
-        public IMoeDeloApiGetCommand(string mainUrl, string apiKey, ILogger logger)
+        public IMoeDeloApiGetCommand(string mainUrl, string apiKey, ILogger logger) : base(mainUrl, apiKey, logger)
         {
-            MainUrl = mainUrl;
-            ApiKey = apiKey;
-            Logger = logger;
+            
         }
 
         public T Get(string[] parameters, string[] args)
