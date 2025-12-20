@@ -11,8 +11,6 @@ namespace MoeDeloApi.Services
     {
         private MdUrlBills Urls;
 
-        private GetMdEntityByIdCommand<BillRepresentation> GetMethot { get; set; }
-
         public BillService(string mainUrl, string apiKey, ILogger logger, MdUrlBills urls) : base(mainUrl, apiKey, logger, urls)
         {
             Urls = urls;
