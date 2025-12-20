@@ -1,35 +1,24 @@
 ﻿using System.Collections.Generic;
+using MoeDeloApi.DTO.UrlDto;
 using MoeDeloApi.Logger;
 using MoeDeloApi.MoeDeloDto.Bill;
 
 namespace MoeDeloApi.Services
 {
-    public class BillService : IMoeDeloEntity<BillCollectionItemRepresentation>
+    public class BillService : MoeDeloEntityBase<BillRepresentation>, IMoeDeloListEntity<BillCollectionItemRepresentation>
     {
-        public string MainUrl { get; set; }
-        public string ApiKey { get; set; }
-        public ILogger Logger { get; set; }
+        private MdUrlBills Urls;
 
-        public BillService(string mainUrl, string apiKey, ILogger logger)
-        {
-            MainUrl = mainUrl;
-            ApiKey = apiKey;
-            Logger = logger;
-        }
+        private GetMdEntityByIdCommand<BillRepresentation> GetMethot { get; set; }
 
-        public BillRepresentation Get(string id)
+        public BillService(string mainUrl, string apiKey, ILogger logger, MdUrlBills urls) : base(mainUrl, apiKey, logger, urls)
         {
-            throw new System.NotImplementedException();
+            Urls = urls;
         }
 
         public List<BillCollectionItemRepresentation> GetList(string[] args)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Set(BillCollectionItemRepresentation entity)
-        {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

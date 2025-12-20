@@ -4,9 +4,9 @@ namespace MoeDeloApi.Services
 {
     public abstract class MoeDeloBase
     {
-        string MainUrl { get; set; }
-        string ApiKey { get; set; }
-        ILogger Logger { get; set; }
+        public string MainUrl { get; set; }
+        public string ApiKey { get; set; }
+        public ILogger Logger { get; set; }
 
         protected MoeDeloBase(string mainUrl, string apiKey, ILogger logger)
         {
