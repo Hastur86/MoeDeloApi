@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="Logger\ConsoleLogger.cs" />
     <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="MoeDeloDto\Bill\BillCollectionItemRepresentation.cs" />
+    <Compile Include="MoeDeloDto\Bill\BillPayment.cs" />
+    <Compile Include="MoeDeloDto\Bill\BillRepresentation.cs" />
+    <Compile Include="MoeDeloDto\Bill\BillRepresentationCollection.cs" />
+    <Compile Include="MoeDeloDto\Bill\Context.cs" />
+    <Compile Include="MoeDeloDto\Bill\SalesDocumentItemRepresentation.cs" />
+    <Compile Include="MoeDeloDto\Bill\SettlementAccountModel.cs" />
     <Compile Include="MoeDeloDto\Kontragent\KontragentDto.cs" />
     <Compile Include="MoeDeloDto\Kontragent\KontragentRepresentationCollection.cs" />
     <Compile Include="MoeDeloDto\Kontragent\TagDto.cs" />
@@ -58,13 +65,16 @@
     <Compile Include="MoeDeloDto\Mony\SourceDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EntityServices\BillService.cs" />
     <Compile Include="Services\IMoeDeloApiGetCommand.cs" />
     <Compile Include="Services\IMoeDeloDatabase.cs" />
     <Compile Include="Services\IMoeDeloEntity.cs" />
+    <Compile Include="Services\IMoeDeloListEntity.cs" />
     <Compile Include="Services\IMoeDeloRepository.cs" />
-    <Compile Include="Services\KontragentService.cs" />
+    <Compile Include="Services\EntityServices\KontragentService.cs" />
+    <Compile Include="Services\MoeDeloBase.cs" />
     <Compile Include="Services\MoeDeloFileDatabase.cs" />
-    <Compile Include="Services\MonyService.cs" />
+    <Compile Include="Services\EntityServices\MonyService.cs" />
     <Compile Include="Services\Repositories\KontragentRepository.cs" />
     <Compile Include="Services\Repositories\OperationRepository.cs" />
   </ItemGroup>
